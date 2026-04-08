@@ -1,4 +1,7 @@
 
+from mycomputation import AverageFloat
+
+
 floatList = [1.2,2.3,4.5,2.3]
 
 print(AverageFloat(floatList))
