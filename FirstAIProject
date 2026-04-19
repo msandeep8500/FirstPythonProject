@@ -1,0 +1,29 @@
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+
+# Training data (sample)
+emails = [
+    "Please find attached invoice",
+    "Payment issue not resolved",
+    "Need help with account",
+    "Invoice for last month attached",
+    "Complaint about service"
+]
+
+labels = ["invoice", "complaint", "query", "invoice", "complaint"]
+
+# Convert text to numbers
+vectorizer = CountVectorizer()
+X = vectorizer.fit_transform(emails)
+
+# Train model
+model = MultinomialNB()
+model.fit(X, labels)
+
+# Test
+def classify_email(text):
+    X_test = vectorizer.transform([text])
+    return model.predict(X_test)[0]
+
+# Example
+print(classify_email("Attached note for your reference"))

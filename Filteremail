@@ -1,0 +1,11 @@
+total_emails = 10000
+time_per_email = 0.5
+bots = 20
+efficiency = 0.7
+
+capacity_per_bot = 1440 * efficiency
+total_capacity = bots * capacity_per_bot
+
+print("Total Workload:", total_emails * time_per_email)
+print("Total Capacity:", total_capacity)
+
